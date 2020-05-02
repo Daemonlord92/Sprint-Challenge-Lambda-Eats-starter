@@ -3,14 +3,13 @@ import { BrowserRouter as Router,
 				Link,
 				Route } from "react-router-dom"
 import { Container,
-					Col,
-					Row,
-					Card,
 					Jumbotron,
-					Button,
 					Nav, 
 					NavItem, 
 					NavLink } from "reactstrap"
+
+import Home from './Home/Home'
+import Form from './Form/Form'
 
 const App = () => {
   return (
@@ -22,21 +21,26 @@ const App = () => {
 		      	<Nav>
 			        <NavItem>
 			          <NavLink href="javascript:void(0)">
-			          	<Link>
+			          	<Link to='/'>
 			          		Home
 			          	</Link>
 			          </NavLink>
 			        </NavItem>
 			        <NavItem>
 			          <NavLink href="javascript:void(0)">
-			          	<Link>
+			          	<Link to="/Pizza">
 			          		Order Pizza
 			          	</Link>
 			          </NavLink>
 			        </NavItem>
 			      </Nav>
 		      </Jumbotron>
-		      
+		      <Route path='/Pizza'>
+		      	<Form />
+		      </Route>
+		      <Route exact path='/'>
+		      	<Home />
+		      </Route>
 	      </Container>
       </Router>
     </>
